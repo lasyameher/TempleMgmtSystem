@@ -25,18 +25,7 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    appointments : [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "appointments"
-    }],
-    cardDetails : [{
-        type : mongoose.Schema.Types.ObjectId,
-        ref : "cardDetails"
-    }],
-    donations : [{
-        type : mongoose.Schema.Types.ObjectId,
-        ref : "donations"
-    }]
+    
     
 });
 

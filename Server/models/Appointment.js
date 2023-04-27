@@ -9,7 +9,7 @@ const AppointmentsSchema = new mongoose.Schema({
         type: Date,
         required: true,
     },
-    priestName : {
+    priestId : {
         type: String,
         required: true,
 
@@ -23,9 +23,9 @@ const AppointmentsSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    userDetails : {
-        type : mongoose.Schema.Types.ObjectId,
-        ref: "users"
+    userId : {
+        type : String,
+        required : true,
     },
 });
 

@@ -22,10 +22,17 @@ export default function SignUp() {
       "password": password,
     }).then((response) => {
       alert("Login Successful!")
-      navigate('/')
       sessionStorage.setItem('userId', JSON.stringify(response.data.id))
       sessionStorage.setItem('role', JSON.stringify(response.data.role))
       sessionStorage.setItem('name', JSON.stringify(response.data.name))
+      if(sessionStorage.getItem('role') === "\"devotee\"")
+      {
+        navigate('/Appointments')
+      }
+      else 
+      {
+        navigate('/')
+      }
     }).catch((error) => {
       console.error(error.message)
       alert("Please enter valid login credentials")

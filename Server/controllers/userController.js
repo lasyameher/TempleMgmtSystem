@@ -112,7 +112,7 @@ const addUser = (req, res, next) => {
         email: req.body.email,
         password: req.body.password,
         phoneno: req.body.phoneno,
-        role: "devotee" 
+        role: req.body.role, 
     })
     user.save()
     .then(response => {

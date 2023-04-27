@@ -19,9 +19,9 @@ const DonationsSchema = new mongoose.Schema({
         required : true,
 
     },
-    userDetails : {
-        type : mongoose.Schema.Types.ObjectId,
-        ref: "users"
+    userId : {
+        type : String,
+        required : true,
     },
     // transactionDetails
     

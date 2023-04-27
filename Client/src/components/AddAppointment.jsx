@@ -1,68 +1,121 @@
-import React, { useState } from 'react'
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import Modal from 'react-bootstrap/Modal';
+import React, { useEffect, useState } from 'react'
+import Navbar from './Navbar';
+import Footer from './Footer';
+import Axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 export default function AddAppointment() {
-  const [validated, setValidated] = useState(false);
+  const [userList, setUserList] = useState([]);
 
+  useEffect(() => {
+    Axios.get("http://localhost:3000/api/users/getUsers")
+    .then((response) => {
+        const list = response.data.response;
+        
+        setUserList(list)
+       
+        console.log(list)
+    })
+    .catch(error => {
+        console.log(error)
+    })
+  }, [])
 
-    const [show, setShow] = useState(false);
+  const navigate = useNavigate();
+  const [appointmentReason, setAppointmentReason] = useState("");
+  const [appointmentDate, setAppointmentDate] = useState("");
+  const [priestId, setPriestId] = useState("");
+  const [description, setDescription] = useState("");
+  //const [status, setStatus] = useState("");
+  //const [userDetails, setUserDetails] = useState("");
 
-    const handleClose = () => {
-    setShow(false)
-    window.location.reload();
-    };
-    const handleShow = () => setShow(true);
+  const addAppointment = (e) => {
+      e.preventDefault();
+      console.log("function called")
+      Axios.post("http://localhost:3000/api/appointments/AddAppointment", {
+        "appointmentReason" : appointmentReason,
+        "appointmentDate" : appointmentDate,
+        "priestId" : priestId,
+        "description" : description,
+        "status" : "Requested",
+        "userId" :  JSON.parse(sessionStorage.getItem('userId')),
+      }).then((response) => {
+          alert("Appointment added Successfully")
+          navigate('/Appointments');
+      });
+  }
 
   return (
-    
     <div>
-      <Button variant="primary" onClick={handleShow}>
-        Add New Item
-      </Button>
+      <Navbar />
 
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Add New Item</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form noValidate validated={validated} >
-          
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Item Name</Form.Label>
-              <Form.Control required name="item" type="text" placeholder="item" autoFocus />
-              <Form.Control.Feedback type="invalid">Please enter item name.</Form.Control.Feedback>
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Price</Form.Label>
-              <Form.Control required name="price" type="text" placeholder="Price" />
-              <Form.Control.Feedback type="invalid">Please enter price.</Form.Control.Feedback>
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-              <Form.Label>Description</Form.Label>
-              <Form.Control required name="desc" as="textarea" rows={3}  />
-              <Form.Control.Feedback type="invalid">Please enter description.</Form.Control.Feedback>
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Contact</Form.Label>
-              <Form.Control required name="contact" type="text" placeholder="xxx-xxx-xxxx" />
-              <Form.Control.Feedback type="invalid">Please enter contact.</Form.Control.Feedback>
-            </Form.Group>
-            
-            <Button variant="secondary" onClick={handleClose}>
-            Close
-            </Button>
-            <Button type='submit' name="save" variant="primary" onClick={handleClose}>
-              Save Changes
-            </Button>
-          
-          </Form>
-          
-        </Modal.Body>
+      <form>
+        <div className="mb-6">
+          <label
+            htmlFor="email"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
+          Appointment Reason
+          </label>
+          <input
+            type="text"
+            id="text"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Reason"
+            required
+            value={appointmentReason}
+            onChange={(e) => setAppointmentReason(e.target.value)}
+          />
+        </div>
+        <div className="mb-6">
+          <label
+            htmlFor="date"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
+          Date
+          </label>
+          <input
+            type="date"
+            id="date"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            required
+            value={appointmentDate}
+            onChange={(e) => setAppointmentDate(e.target.value)}
+          />
+        </div>
+        <div className="mb-6">
+          <label
+            htmlFor="email"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
+          Description
+          </label>
+          <textarea value={description} onChange={(e) => setDescription(e.target.value)} id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment..."></textarea>
+        </div>
+        <div>
+          <label for="Priest" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Priest</label>
+          <select value={priestId} onChange={(e) => setPriestId(e.target.value)}id="Priest" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            {
+              userList.map(user => (
+                user.role === "Priest" ?
+                <option value={user._id} key={user._id}>{user.name}</option>
+                :
+                <option></option>
+              ))
+            }
+          </select>
+        </div>
         
-      </Modal>
-    </div>
+        <button
+          type="button"
+          onClick={addAppointment}
+          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        >
+          Submit
+        </button>
+      </form>
+
+  </div>
   );
 
 }

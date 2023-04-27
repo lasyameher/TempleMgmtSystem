@@ -1,4 +1,3 @@
-
 import './App.css';
 import { BrowserRouter,Routes, Route} from "react-router-dom";
 import Home from './components/Home';
@@ -14,6 +13,11 @@ import Mission from './components/Mission';
 import Priest from './components/Priest';
 import SignUp from './components/SignUp';
 import AddAppointment from './components/AddAppointment';
+import Appointments from './components/Appointments';
+import UserRegister from './components/UserRegister';
+import Users from './components/Users';
+import AddUser from './components/AddUser';
+import Events from './components/Events';
 
 function App() {
   return (
@@ -30,9 +34,13 @@ function App() {
         <Route path="/Login" element={<Login />} />
         <Route path="/Mission" element={<Mission />} />
         <Route path="/Priest" element={<Priest />}/>
-        <Route path='/SignUp' element = {<SignUp />} />
+        <Route path="/SignUp" element = {<SignUp />} />
         <Route path="/AddAppointment" element = {<AddAppointment />} />
-
+        <Route path="/Appointments" element = {<Appointments />} />
+        <Route path="/UserRegister" element = {<UserRegister />} />
+        <Route path="/AddUser" element = {<AddUser />} />
+        <Route path="/Users" element = {<Users />} />
+        <Route path="/Events" element = {<Events />} />      
       </Routes>
     </BrowserRouter>
   );

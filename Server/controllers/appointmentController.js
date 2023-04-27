@@ -39,15 +39,14 @@ const getAppointmentById = (req, res, next) => {
 //Add new Appointment
 
 const addAppointment = (req, res, next) => {
-    user = req.params;
-    id = user.id;
+
     let appointment = new Appointment({
         appointmentReason : req.body.appointmentReason,
         appointmentDate : req.body.appointmentDate,
-        priestName : req.body.priestName,
+        priestId : req.body.priestId,
         description : req.body.description,
         status : req.body.status,
-        userDetails : id,
+        userId : req.body.userId,
     })
     appointment.save()
     .then(response => {
@@ -71,9 +70,10 @@ const updateAppointment = (req, res, next) => {
     let updatedData = {
         appointmentReason : req.body.appointmentReason,
         appointmentDate : req.body.appointmentDate,
-        priestName : req.body.priestName,
+        priestId : req.body.priestId,
         description : req.body.description,
         status : req.body.status,
+        userId : req.body.userId,
     }
     Appointment.findByIdAndUpdate(appointmentId, {$set: updatedData})
     .then(() => {

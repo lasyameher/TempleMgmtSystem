@@ -13,7 +13,7 @@ export default function Navbar() {
   sessionStorage.clear();
   navigate('/');
   }
-  console.log(role);
+  //console.log(role);
 
   if(userId != null)
   {
@@ -75,7 +75,7 @@ export default function Navbar() {
               className="block py-2 px-4 text-gray-500 font-semibold hover:text-gray-700">Contact</Link>
           </li>
           <li>
-          <Link to={'/AddAppointment'} style={{ borderLeft: "none" }}
+          <Link to={'/Appointments'} style={{ borderLeft: "none" }}
               href="../index.php"
               className="block py-2 px-4 text-gray-500 font-semibold hover:text-gray-700">Appointment</Link>          
           </li>
@@ -140,7 +140,7 @@ export default function Navbar() {
               className="block py-2 px-4 text-gray-500 font-semibold hover:text-gray-700">Live Stream</Link>
           </li>
           <li>
-          <Link to={'/AddAppointment'} style={{ borderLeft: "none" }}
+          <Link to={'/Appointments'} style={{ borderLeft: "none" }}
               href="../index.php"
               className="block py-2 px-4 text-gray-500 font-semibold hover:text-gray-700">Manage Appointments</Link>          
           </li>
@@ -188,12 +188,7 @@ export default function Navbar() {
           <Link to={'/Services'} style={{ borderLeft: "none" }}
               href="../index.php"
               className="block py-2 px-4 text-gray-500 font-semibold hover:text-gray-700">Services</Link>
-          </li>
-          <li className="mr-3">
-          <Link to={'/Calendar'} style={{ borderLeft: "none" }}
-              href="../index.php"
-              className="block py-2 px-4 text-gray-500 font-semibold hover:text-gray-700">Calendar</Link>
-          </li>
+          </li>          
           <li className="mr-3">
           <Link to={'/Gallery'} style={{ borderLeft: "none" }}
               href="../index.php"
@@ -205,19 +200,19 @@ export default function Navbar() {
               className="block py-2 px-4 text-gray-500 font-semibold hover:text-gray-700">Live Stream</Link>
           </li>
           <li>
-          <Link to={'/AddAppointment'} style={{ borderLeft: "none" }}
+          <Link to={'/Users'} style={{ borderLeft: "none" }}
               href="../index.php"
               className="block py-2 px-4 text-gray-500 font-semibold hover:text-gray-700">Users</Link>          
           </li>
           <li>
-          <Link to={'/AddAppointment'} style={{ borderLeft: "none" }}
+          <Link to={'/Events'} style={{ borderLeft: "none" }}
               href="../index.php"
               className="block py-2 px-4 text-gray-500 font-semibold hover:text-gray-700">Events</Link>          
           </li>
           <li>
-          <Link to={'/Login'} style={{ borderLeft: "none" }}
+          <Link onClick={logout} style={{ borderLeft: "none" }}
               href="../index.php"
-              className="block py-2 px-4 text-gray-500 font-semibold hover:text-gray-700">Logout</Link>          
+              className="block py-2 px-4 text-gray-500 font-semibold hover:text-gray-700">Logout</Link>
           </li>
         </ul>
       </nav>

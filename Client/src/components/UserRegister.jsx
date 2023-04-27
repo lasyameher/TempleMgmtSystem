@@ -11,15 +11,17 @@ export default function UserRegister() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [phoneNo, setPhoneNo] = useState("");
+    const [role, setRole] = useState("");
     const registerUser = (e) => {
         e.preventDefault();
         console.log("function called")
-        Axios.post("http://localhost:3001/api/users/RegisterUser", {
+        Axios.post("http://localhost:3000/api/users/RegisterUser", {
             "name": name,
             "address": address,
             "email": email,
             "password": password,
             "phoneno": phoneNo,
+            "role" : role,
         }).then((response) => {
             alert("Registration Successful")
             navigate('/SignUp')
@@ -73,6 +75,13 @@ export default function UserRegister() {
                                 value={phoneNo}
                                 onChange={(e) => setPhoneNo(e.target.value)}
                                 placeholder="Phone Number" />
+                            <input
+                                type="text"
+                                class="block border border-grey-light w-full p-3 rounded mb-4"
+                                name="phoneno"
+                                value={role}
+                                onChange={(e) => setRole(e.target.value)}
+                                placeholder="Role" />
                             <button
                                 onClick={(e) => registerUser(e)}
                                 class="w-full text-white bg-primary-600 bg-green-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Create Account</button>
