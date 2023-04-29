@@ -1,3 +1,4 @@
+const { response } = require('express')
 const User = require('../models/Users')
 //Show details of users
 
@@ -141,9 +142,9 @@ const updateUser = (req, res, next) => {
         role: req.body.role,
     }
     User.findByIdAndUpdate(userId, {$set: updatedData})
-    .then(() => {
+    .then(response => {
         res.json({
-            message:'User Updated'
+            response
         })
     })
     .catch(error => {

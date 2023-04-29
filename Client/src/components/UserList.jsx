@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import Axios from 'axios'
+import EditUser from './EditUser';
 export default function UserList() {
   const [userList, setUserList] = useState([]);
   useEffect(() => {
@@ -36,7 +37,7 @@ export default function UserList() {
           {user.email}
       </td>
       <td class="px-6 py-4">
-          <button>Edit</button>
+          <EditUser user = {user}/>
       </td>
     </tr>  
 

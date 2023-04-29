@@ -14,14 +14,13 @@ export default function Login(){
         <div className="flex justify-center max-w-8xl space-x-36  mt-8 mb-10">
     <button onClick= {()=> {navigateTo('/SignUp')}}
       className="rounded-full h-80 w-80 mt-20 ml-20 flex items-center justify-center bg-gray-400 text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
-      {/* <img 
+      <img 
         className="rounded-full h-80 w-80 object-cover"
         src={devotee} 
-        /> */}
-        devotee
+        /> 
     </button>
 
-    <button 
+    <button onClick= {()=> {navigateTo('/SignInForPriestAndAdmin')}}
       className="rounded-full h-80 w-80 mt-20 ml-40 flex items-center justify-center bg-gray-400 text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
       <img 
         className="rounded-full h-80 w-80 object-cover"
@@ -29,7 +28,7 @@ export default function Login(){
         />
     </button>
 
-    <button 
+    <button onClick= {()=> {navigateTo('/SignInForPriestAndAdmin')}}
       className="rounded-full h-80 w-80 mt-20 ml-60 flex items-center justify-center bg-gray-400 text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
       <img 
         className="rounded-full h-80 w-80 object-cover"

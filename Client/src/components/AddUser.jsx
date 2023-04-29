@@ -34,7 +34,7 @@ export default function UserRegister() {
                         <form>
 
 
-                            <h1 class="mb-8 text-3xl text-center">Sign up</h1>
+                            <h1 class="mb-8 text-3xl text-center">Add New User</h1>
                             <input
                                 type="text"
                                 class="block border border-grey-light w-full p-3 rounded mb-4"

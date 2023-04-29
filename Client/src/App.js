@@ -17,7 +17,9 @@ import Appointments from './components/Appointments';
 import UserRegister from './components/UserRegister';
 import Users from './components/Users';
 import AddUser from './components/AddUser';
-import Events from './components/Events';
+import AddEvent from './components/AddEvent';
+import EditAppointment from './components/EditAppointment';
+import SignUpForPriestAndAdmin from './components/SignUpForPriestAndAdmin';
 
 function App() {
   return (
@@ -40,7 +42,9 @@ function App() {
         <Route path="/UserRegister" element = {<UserRegister />} />
         <Route path="/AddUser" element = {<AddUser />} />
         <Route path="/Users" element = {<Users />} />
-        <Route path="/Events" element = {<Events />} />      
+        <Route path="/AddEvent" element = {<AddEvent />} />    
+        <Route path="/SignInForPriestAndAdmin" element = {<SignUpForPriestAndAdmin />} /> 
+
       </Routes>
     </BrowserRouter>
   );

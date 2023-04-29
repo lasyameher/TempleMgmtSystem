@@ -205,7 +205,7 @@ export default function Navbar() {
               className="block py-2 px-4 text-gray-500 font-semibold hover:text-gray-700">Users</Link>          
           </li>
           <li>
-          <Link to={'/Events'} style={{ borderLeft: "none" }}
+          <Link to={'/AddEvent'} style={{ borderLeft: "none" }}
               href="../index.php"
               className="block py-2 px-4 text-gray-500 font-semibold hover:text-gray-700">Events</Link>          
           </li>

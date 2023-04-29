@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import EditAppointment from './EditAppointment';
 
 export default function AppointmentList() {
   const [appointmentList, setAppointmentList] = useState([]);
@@ -17,6 +19,12 @@ export default function AppointmentList() {
         console.log(error)
     })
   }, [])
+  
+  const navigate = useNavigate();
+  const editAppointment = (appointmentId) => {
+    navigate(`/EditAppointment/${appointmentId}`);
+    sessionStorage.setItem('appointmentId',appointmentId);
+  }
 
   if(role === "Priest")
   {
@@ -37,11 +45,10 @@ export default function AppointmentList() {
         <td class="px-6 py-4">
             {appointment.status}
         </td>
+
         <td class="px-6 py-4">
-            by?
-        </td>
-        <td class="px-6 py-4">
-            <button>Edit</button>
+        <EditAppointment appointment = {appointment} />
+            
         </td>
       </tr>  
         :
@@ -68,9 +75,6 @@ export default function AppointmentList() {
         </td>
         <td class="px-6 py-4">
             {appointment.status}
-        </td>
-        <td class="px-6 py-4">
-            <button>Edit</button>
         </td>
       </tr>  
         :

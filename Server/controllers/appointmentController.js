@@ -1,3 +1,4 @@
+const { response } = require('express')
 const Appointment = require('../models/Appointment')
 const User = require('../models/Users')
 
@@ -22,15 +23,12 @@ const getAppointments = (req, res, next) => {
 
 const getAppointmentById = (req, res, next) => {
     let appointmentId = req.body.appointmentId
-    Appointment.findOne(appointmentId)
-    .then(() =>{
-        req.json({
-            response
-        })        
+    Appointment.findById(appointmentId).then(appointment => {
+        res.send(appointment)
+        
     })
-    .catch(error =>{
-        console.log(error)
-        req.json({
+    .catch(error => {
+        res.json({
             message: 'An error occured!'
         })
     })
@@ -76,9 +74,9 @@ const updateAppointment = (req, res, next) => {
         userId : req.body.userId,
     }
     Appointment.findByIdAndUpdate(appointmentId, {$set: updatedData})
-    .then(() => {
+    .then(response => {
         res.json({
-            message:'Appointment Updated'
+            response
         })
     })
     .catch(error => {
