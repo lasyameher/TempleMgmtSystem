@@ -19,18 +19,19 @@ export default function AddEvent() {
         Axios.post("http://localhost:3000/api/events/AddEvent", {
             "eventName": eventName,
             "eventStartDate": eventStartDate,
-            "eventEndDate": eventEndDate,
-            "descriptions": descriptions,
-            "status": "Added",
+            "eventEndDate": eventEndDate
+            //"descriptions": descriptions,
+            //"status": "Added",
         }).then((response) => {
             alert("Event Added Successfully")
+            window.location.reload();
         });
     }
 
   return (
     <div>
         <Navbar />
-        <div className="mb-20">
+        <div className="bg-orange-300 mb-16">
         
         <div className="flex flex-col items-center py-2">
           <div className="flex flex-row space-x-10 mt-4 z-20">
@@ -56,7 +57,7 @@ export default function AddEvent() {
             onChange={(e) => setEventEndDate(e.target.value)}
           />
         
-            <input type="text" placeholder="Description" style={{ width: "150%", marginRight: "10px" }} value={descriptions} onChange={(e) => setDescription(e.target.value)} />
+           {/* <input type="text" placeholder="Description" style={{ width: "150%", marginRight: "10px" }} value={descriptions} onChange={(e) => setDescription(e.target.value)} />*/}
             <button type="submit" onClick={handleAddEvent} className="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" style={{ width: "100%" }}>Add Event</button> 
           </div>
         </div>

@@ -18,8 +18,10 @@ import UserRegister from './components/UserRegister';
 import Users from './components/Users';
 import AddUser from './components/AddUser';
 import AddEvent from './components/AddEvent';
-import EditAppointment from './components/EditAppointment';
 import SignUpForPriestAndAdmin from './components/SignUpForPriestAndAdmin';
+import Checkout from './components/checkout';
+import AddLivestream from './components/AddLivestream';
+import DisplayLivestream from './components/DisplayLivestream'
 
 function App() {
   return (
@@ -44,7 +46,9 @@ function App() {
         <Route path="/Users" element = {<Users />} />
         <Route path="/AddEvent" element = {<AddEvent />} />    
         <Route path="/SignInForPriestAndAdmin" element = {<SignUpForPriestAndAdmin />} /> 
-
+        <Route path="/Checkout" element = {<Checkout />} />
+        <Route path="/AddLivestream" element = {<AddLivestream />} />
+        <Route path="/DisplayLivestream" element = {<DisplayLivestream />} />
       </Routes>
     </BrowserRouter>
   );

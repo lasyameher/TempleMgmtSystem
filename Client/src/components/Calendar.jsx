@@ -5,7 +5,7 @@ import Footer from './Footer'
 
 export default function Calendar() {
   return (
-    <div>
+    <div className='bg-orange-300 min-h-screen'>
       <Navbar />
       <Events />
       <Footer />

@@ -13,14 +13,14 @@ const EventsSchema = new mongoose.Schema({
         type : Date,
         required : true,
     },
-    descriptions : {
+    /*descriptions : {
         type : String,
         required : true,
     },
     status : {
         type : String,
         required : true,
-    },
+    },*/
     
 });
 

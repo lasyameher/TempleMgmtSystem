@@ -21,7 +21,7 @@ function addToCart() {
   }
 }
   return (
-    <div>
+    <div className="bg-orange-300 w-fit-screen">
       <Navbar />
       <div className="relative">
         <button onClick={() => navigate("/Checkout")}>
@@ -34,17 +34,17 @@ function addToCart() {
         </button>
       </div>
 
-      <div className="mt-20 ml-5 mb-20 mr-5 max-w-fit p-2 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div className="mt-20 ml-5 mb-20 mr-5 max-w-fit bg-orange-100 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <a href="#">
-          <h5 className="mb-2 text-1xl text-center font-bold tracking-tight text-gray-900 dark:text-white">Omkaar Temple is a Non-Profit Organization and all donations are tax deductible</h5>
+          <h5 className="mb-2 text-1xl text-center font-bold px-2 py-1 bg-orange-400 rounded-t-lg tracking-tight text-gray-900 dark:text-white">Omkaar Temple is a Non-Profit Organization and all donations are tax deductible</h5>
         </a>
-        <h1 className="mb-3 font-normal text-left text-gray-700 dark:text-gray-400">
+        <h1 className="mb-3 font-normal px-2 text-left text-gray-700 dark:text-gray-400">
           Thank you for considering to donate to Omkaar Temple. The building of Omkaar Temple is truly an undertaking of epic proportions and a donation of any amount goes a long way.
           The growth of the Temple as well as associated religious activities depends greatly upon the generous donations of devotees like you. Thank you again for helping our community realize its collective dream for Omkaar Temple.</h1>
         <h1 className="mb-3 font-normal text-right text-gray-700 dark:text-gray-400">- Omkaar Temple Administration</h1>
         <br></br>
 
-        <div className="max-w-fit space-x-2 mb-10 flex flex-row bg-white">
+        <div className="max-w-fit space-x-2 mb-10 flex flex-row bg-orange-100">
           <div className="border border-gray-200 rounded-lg border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <img className="rounded-t-lg" src={donate} alt />
             <div className="p-5">

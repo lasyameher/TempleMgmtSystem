@@ -40,8 +40,8 @@ const addEvent = (req, res, next) => {
         eventName : req.body.eventName,
         eventStartDate : req.body.eventStartDate,
         eventEndDate : req.body.eventEndDate,
-        descriptions : req.body.descriptions,
-        status : req.body.status,
+        //descriptions : req.body.descriptions,
+        //status : req.body.status,
     })
     eventDetails.save()
     .then(response => {
@@ -66,8 +66,8 @@ const updateEventDetails = (req, res, next) => {
         eventName : req.body.eventName,
         eventStartDate : req.body.eventStartDate,
         eventEndDate : req.body.eventEndDate,
-        descriptions : req.body.descriptions,
-        status : req.body.status,
+        //descriptions : req.body.descriptions,
+        //status : req.body.status,
 
     }
     EventDetails.findByIdAndUpdate(eventId, {$set: updatedData})

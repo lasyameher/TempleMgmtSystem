@@ -12,25 +12,24 @@ import img6 from "../images/pic6.jpeg";
 import img7 from "../images/pic7.jpeg";
 
 
-export default function Gallery(){
-    return(
-      <div>
-        <Navbar/>
-        
-        <AliceCarousel autoPlay autoPlayInterval="500" className ="mx-auto max-w-fit" >
-          <img src={img1} className="slider img" alt=""/>
-          <img src={img2} className="slider img" alt=""/>
-          <img src={img3} className="slider img" alt=""/>
-          <img src={img4} className="slider img" alt=""/>
-          <img src={img5} className="slider img" alt=""/>
-          <img src={img6} className="slider img" alt=""/>
-          <img src={img7} className="slider img" alt=""/>
+export default function Gallery() {
+  return (
+    <div className="bg-orange-300 min-h-screen">
+      <Navbar />
+      <div className="mb-8 flex justify-center items-center" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -60%)', width: '50%', height: '40%' }}>
+        <AliceCarousel autoPlay autoPlayInterval="500">
+          <img src={img1} className="slider img object-cover" alt="" />
+          <img src={img2} className="slider img object-cover" alt="" />
+          <img src={img3} className="slider img object-cover" alt="" />
+          <img src={img4} className="slider img object-cover" alt="" />
+          <img src={img5} className="slider img object-cover" alt="" />
+          <img src={img6} className="slider img object-cover" alt="" />
+          <img src={img7} className="slider img object-cover" alt="" />
         </AliceCarousel>
+      </div>
 
-          
+      <Footer />
 
-        <Footer/>
-
-      </div>  
-    )
+    </div>
+  )
 }

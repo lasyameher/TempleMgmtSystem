@@ -32,7 +32,7 @@ export default function AppointmentList() {
       appointment.priestId === JSON.parse(sessionStorage.getItem('userId')) ?
       
         
-      <tr class="bg-white dark:bg-gray-800">
+      <tr class="bg-orange-100">
         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
             {appointment.appointmentReason}
         </th>
@@ -63,7 +63,7 @@ export default function AppointmentList() {
       appointment.userId === JSON.parse(sessionStorage.getItem('userId')) ?
       
         
-      <tr class="bg-white dark:bg-gray-800">
+      <tr className="bg-orange-100">
         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
             {appointment.appointmentReason}
         </th>

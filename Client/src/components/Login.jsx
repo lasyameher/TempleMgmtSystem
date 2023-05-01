@@ -9,7 +9,7 @@ export default function Login(){
   const navigateTo = useNavigate();
   
     return(
-      <div>
+      <div className="bg-orange-300 min-h-screen">
         <Navbar/>
         <div className="flex justify-center max-w-8xl space-x-36  mt-8 mb-10">
     <button onClick= {()=> {navigateTo('/SignUp')}}

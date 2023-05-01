@@ -21,23 +21,20 @@ export default function UserRegister() {
             "email": email,
             "password": password,
             "phoneno": phoneNo,
-            "role" : role,
+            "role" : "devotee",
         }).then((response) => {
             alert("Registration Successful")
             navigate('/SignUp')
         });
     }
     return (
-        <div>
+        <div className="bg-orange-300 min-h-screen">
             <Navbar />
-
-            <div class="bg-grey-lighter min-h-screen flex flex-col">
+            <div class="flex mt-10 flex-col">
                 <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
-                    <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+                    <div class="bg-orange-100 px-6 py-6 rounded shadow-md text-black w-full">
                         <form>
-
-
-                            <h1 class="mb-8 text-3xl text-center">Sign up</h1>
+                            <h1 class="mb-8 text-3xl font-bold text-center">Sign up</h1>
                             <input
                                 type="text"
                                 class="block border border-grey-light w-full p-3 rounded mb-4"
@@ -75,13 +72,6 @@ export default function UserRegister() {
                                 value={phoneNo}
                                 onChange={(e) => setPhoneNo(e.target.value)}
                                 placeholder="Phone Number" />
-                            <input
-                                type="text"
-                                class="block border border-grey-light w-full p-3 rounded mb-4"
-                                name="phoneno"
-                                value={role}
-                                onChange={(e) => setRole(e.target.value)}
-                                placeholder="Role" />
                             <button
                                 onClick={(e) => registerUser(e)}
                                 class="w-full text-white bg-primary-600 bg-green-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Create Account</button>
