@@ -14,4 +14,4 @@
 -	After your testing is done, you can click the logout button, and this will clear the session and logs you out of the system.
 
 ## GitHub Repo Link:
-https://github.com/lasyameher/TempleMgmtSystem
+https://github.com/lasyameher/TempleMgmtSystem.git
